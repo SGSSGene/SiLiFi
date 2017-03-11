@@ -56,9 +56,10 @@ private:
 	SiLi::Matrix<Dim, Dim, T> Q;
 	SiLi::Matrix<Dim, 1, T>   u;
 public:
-	template <typename P1, typename P2>
-	Process(SiLi::MatrixView<Dim, Dim, P1, T const> const& _F, SiLi::MatrixView<Dim, Dim, P2, T const> const& _Q,
-	        SiLi::Matrix<Dim, 1, T> _u = {})
+	template <typename P1 = SiLi::Properties<Dim>, typename P2 = SiLi::Properties<Dim>>
+	Process(SiLi::MatrixView<Dim, Dim, P1, T const> const& _F = SiLi::make_eye<T, Dim, Dim>(),
+	        SiLi::MatrixView<Dim, Dim, P2, T const> const& _Q = SiLi::make_eye<T, Dim, Dim>(),
+	        SiLi::Matrix<Dim, 1, T> _u = {0.})
 		: F {_F}
 		, Q {_Q}
 		, u {_u}
