@@ -1,0 +1,4 @@
+name: SiLiFi
+extRepositories:
+  - url: git@github.com:nerdmaennchen/SiLi.git
+
